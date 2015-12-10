@@ -1,7 +1,7 @@
 {
-	"name":"sascha-brandhoff/count_ce",
-	"description":"Made a CounterUP with Contao",
-	"keywords":["contao","counter", "jquery"],
+	"name":"sascha-brandhoff/content_log",
+	"description":"Show activities since lastlogin",
+	"keywords":["contao","content", "log"],
 	"type":"contao-module",
 	"homepage":"",
 	"license":"LGPLv3",
@@ -15,20 +15,20 @@
 	],
 	"support":{
 		"email":"sascha.brandhoff@gmail.com",
-		"issues":"https://github.com/Sascha-Brandhoff/count_ce/issues",
-		"source":"https://github.com/Sascha-Brandhoff/count_ce"
+		"issues":"https://github.com/Sascha-Brandhoff/content_log/issues",
+		"source":"https://github.com/Sascha-Brandhoff/content_log"
 	},
 	"require":{
 		"php":">=5.3",
 		"contao/core": ">=3.4,<3.5"
 	},
 	"replace":{
-		"sascha-brandhoff/count_ce":"self.version"
+		"sascha-brandhoff/content_log":"self.version"
 	},
 	"extra":{
 		"contao":{
 			"sources":{
-				"":"system/modules/count_ce"
+				"":"system/modules/content_log"
 			}
 		}
 	}
