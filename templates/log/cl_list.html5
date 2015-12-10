@@ -1,0 +1,6 @@
+<tr class="<?php if($this->css): ?><?php echo $this->css; ?><?php endif; ?>">
+	<td class="date"><?php echo $this->parseDate; ?></td>
+	<td class="title"><?php echo $this->headline['value']; ?></td>
+	<td class="page"><?php echo $this->page; ?></td>
+	<td class="more"><a href="<?php echo $this->showUrl; ?>" title="<?php echo $this->page; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['more']; ?></a></td>
+</tr>

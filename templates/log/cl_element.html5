@@ -1,0 +1,5 @@
+<div class="content_log<?php if($this->css): ?> <?php echo $this->css; ?><?php endif; ?>">
+<p class="meta"><?php echo $this->parseDate; ?> <span class="page"><?php echo $this->page; ?></span></p>
+<?php echo $this->htmlElement; ?>
+<p class="more"><a href="<?php echo $this->showUrl; ?>" title="<?php echo $this->page; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['more']; ?></a></p>
+</div>
