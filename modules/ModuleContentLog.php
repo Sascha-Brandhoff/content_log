@@ -68,6 +68,30 @@ class ModuleContentLog extends \Module
 			}
 		}
 
+		$objFAQ = $this->Database->prepare("SELECT * FROM tl_faq WHERE tstamp > ? && published = ? ORDER BY tstamp DESC")->execute($this->Member->lastLogin, '1');
+		while($objFAQ->next())
+		{
+			$arrItem = $objFAQ->row();
+
+			foreach($GLOBALS['TL_HOOKS']['contentLog'] as $callback)
+			{
+				$this->import($callback[0]);
+				$arrItem = $this->$callback[0]->$callback[1]('tl_faq', $objFAQ->tstamp, $arrItem);
+			}
+
+			if(($mod++ % 2) == 0)
+			{
+				$arrItem['css'] .= 'even';
+			}
+			else
+			{
+				$arrItem['css'] .= 'odd';
+			}
+
+
+			$arrItem['parseDate'] = '<time datetime="' . date('Y-m-d\TH:i:sP', $arrItem['tstamp']) . '">' . \Date::parse($GLOBALS['objPage']->datimFormat, $arrItem['tstamp']) . '</time>';
+			$arrContent[] = (object) $arrItem;
+		}
 
 		$arrContent[0]->css .= ' first';
 		$arrContent[count($arrContent) - 1]->css .= ' last';
