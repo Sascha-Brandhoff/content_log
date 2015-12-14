@@ -33,7 +33,7 @@ class ModuleContentLog extends \Module
 	protected function compile()
 	{
 		$arrContent = array();
-		$objContent = $this->Database->prepare("SELECT * FROM tl_content WHERE tstamp > ? && outSide_log = ? ORDER BY tstamp DESC")->execute($this->Member->lastLogin, '');
+		$objContent = $this->Database->prepare("SELECT * FROM tl_content WHERE tstamp > ? && outSide_log = ? && invisible = ? ORDER BY tstamp DESC")->execute($this->Member->lastLogin, '', '');
 		while($objContent->next())
 		{
 			$arrItem = $objContent->row();
